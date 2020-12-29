@@ -1,10 +1,16 @@
 <template>
-    <v-card elevation="4" >
+    <v-card elevation="4" v-bind="rest">
         <slot name="content"/>
     </v-card>
 </template>
 <script>
 export default {
-    name : "card",
+    name : "Card",
+    props: {
+        rest : {
+            type : Object,
+            default : null
+        }
+    }
 }
 </script>

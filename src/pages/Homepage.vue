@@ -25,7 +25,7 @@
                     margin="0"
                      class="text-capitalize"
                      color="secondary"
-              >Later</v-btn>
+                >Later</v-btn>
                 </v-col>
               </v-row>
             </v-card-actions>
@@ -38,6 +38,7 @@
 </template>
 <script>
 import Card from "@/components/Card.vue";
+import { mapGetters } from "vuex";
 export default {
   name: "Homepage",
   data: () => ({
@@ -51,6 +52,11 @@ export default {
      const response = await this.axios.get("/top-headlines");
      return this.articles = await response.data.articles;
    }
+  },
+  computed : {
+    ...mapGetters("ReadLater", [
+      "saved"
+    ])
   },
   mounted(){
     this.getArticles();

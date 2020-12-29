@@ -1,4 +1,6 @@
-const global = {
+/** @const global | @type {Object} use to return global data, function for all component or pages */
+
+    const global = {
     methods : {
         getImage(url){
             if(url === null){

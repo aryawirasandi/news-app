@@ -1,15 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex justify-between">
-        <h2>News App</h2>
-      </div>
-      <v-spacer></v-spacer>
-      <div>
-           <v-btn color="primary" elevation="2" fab icon></v-btn>
-      </div>
-    </v-app-bar>
+    <Header :title="title"/>
     <v-main>
+       <Navigation/>
       <v-container>
         <router-view></router-view>
       </v-container>
@@ -17,11 +10,18 @@
   </v-app>
 </template>
 <script>
+import Header from "@/components/Header.vue";
+import Navigation from "@/components/Navigation.vue";
 export default {
   name: "App",
-  components: {},
-  data: () => ({
-    artilces : []
-  })
+  components: {
+    Header,
+    Navigation
+  },
+  data(){
+    return {
+      title : "Headline News"
+    }
+  }
 };
 </script>
