@@ -1,10 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <v-spacer></v-spacer>
-    </v-app-bar>
-
+    <Header :title="title"/>
     <v-main>
+       <Navigation/>
       <v-container>
         <router-view></router-view>
       </v-container>
@@ -12,11 +10,18 @@
   </v-app>
 </template>
 <script>
+import Header from "@/components/Header.vue";
+import Navigation from "@/components/Navigation.vue";
 export default {
   name: "App",
-  components: {},
-  data: () => ({
-    //
-  }),
+  components: {
+    Header,
+    Navigation
+  },
+  data(){
+    return {
+      title : "Headline News"
+    }
+  }
 };
 </script>
